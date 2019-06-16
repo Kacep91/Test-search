@@ -1,0 +1,180 @@
+@font-face {
+    font-family: "YandexSansDisplay-Light";
+    src: url("fonts/YandexSansDisplay-Light.ttf");    
+    }
+
+
+.container{
+    width: 500px;
+    height: 200px;
+    display: flex;
+    justify-content: end;
+    align-content: flex-end;  
+    
+}
+.img{
+display: none;
+width: 50px;
+height: 15px;
+position: absolute;
+top: 25px;
+left: -10px;
+animation: appear 0.5s ease-in-out 0s 1 normal forwards;
+}
+@keyframes appear{
+0% {
+    display: block;
+    transform: translateY(-1px); 
+}
+30%{
+    display: block;
+    transform: translateY(-3px); 
+}
+70%{
+    display: block;
+    transform: translateY(-5px); 
+}
+100%{
+    display: block;
+    transform: translateY(-5px); 
+}
+}
+input{    
+    width: 200px;
+    border: none;    
+    background-image: url("img/icon.png");
+    background-repeat: no-repeat;
+    background-size: 7%;
+    background-position: 0% 30%;
+    padding-left: 20px;
+    color: black;   
+    font-family: "YandexSansDisplay-Light";       
+}
+
+input:hover{    
+    outline: 0;    
+}
+input:hover ~ img{    
+    display: block;    
+}
+input:focus ~ img{
+    display: none;
+}
+input::placeholder{    
+    color: black;
+    transition: all 0.3s ease-in-out;  
+}
+
+input:focus{
+    outline: 0;
+    animation: onfocus 2s ease-in-out 0.3s 1 normal forwards;     
+}
+.fromRight:after {
+    display:block;
+    content: '';
+    border-bottom: solid 1px #000;  
+    transform: scaleX(0);  
+    transition: transform 250ms 0.38s ease-in;    
+}
+input:focus ~ .fromRight:after{
+    transform: scaleX(1);
+}
+.fromRight:after{ transform-origin:100% 50%; }
+
+input:focus::placeholder{
+    transition: opacity 0.5s ease; 
+    opacity: 0;
+}
+.overflow-text{
+    display: none;
+    font-family: "YandexSansDisplay-Light";
+    font-size: 13px;    
+    opacity: 0;
+    margin-top: 0px;
+    pointer-events: none;
+    color: grey;
+    animation: showing 1s ease-in-out 0.3s 1 normal forwards;   
+}
+
+input:focus-within ~ label{
+    display: block;    
+    animation: showing 1s ease-in-out 0.3s 1 normal forwards;    
+}
+
+input:not(:focus-within) ~ label{
+    display: none;      
+}
+
+.search-box{
+    display: block;
+    position: relative;
+}
+
+@keyframes showing {
+    0%{
+        transform: translateY(0px);
+        display: block;
+        opacity: 0.1;
+    }    
+    20%{
+        transform: translateY(-10px);
+        display: block;
+        opacity: 0.4;
+    }
+    40%{
+        transform: translateY(-30px);
+        display: block;
+        opacity: 0.7;
+    }
+    60%{
+        transform: translateY(-15px);
+        display: block;
+        opacity: 0.9;
+    }
+    80%{
+        transform: translateY(-25px);
+        display: block;
+        opacity: 1;
+    }
+    100%{transform: translateY(-20px);
+        display: block;
+        opacity: 1;        
+    }    
+}
+
+@keyframes onfocus {
+0% {
+    color: black;
+    background-image: url("img/icon.png");
+    background-repeat: no-repeat;
+    background-size: 7%;
+    background-position: 0% 30%;
+    padding-left: 20px;
+}
+30% {
+    background-image: url("img/icon.png");
+    background-repeat: no-repeat;
+    background-size: 7%;
+    background-position: 100% 30%;
+    transition: all 250ms ease-in;
+    padding-left: 0px;
+}
+70% {
+    background-image: url("img/icon.png");
+    background-repeat: no-repeat;
+    background-size: 7%;
+    background-position: 100% 30%;
+    transition: border 250ms ease-in;
+    padding-left: 0px;
+}
+100%{
+    color: grey;    
+    background-image: url("img/icon.png");
+    background-repeat: no-repeat;
+    background-size: 7%;
+    background-position: 100% 30%;
+    transition: all 250ms ease-in;
+    padding-left: 0px;
+}
+}
+
